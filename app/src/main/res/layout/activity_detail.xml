@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vvm.ActivityDetail">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/topContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/iv_backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"/>
+
+        <!--NOTE:
+        in a lot of movies the title, year, rating image/text,
+        and runtime image/text are hard to read due to the color of the
+        background image.
+        for simplicity, i just changed their color to the colorAccent
+        which in this case should be visible with most movies.
+        in a production app i would have moved those images/texts
+        outside the backdrop image-->
+
+        <TextView
+            android:id="@+id/tv_titleAndYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="title and year"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_star"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_rating"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="9.7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_star"
+            app:layout_constraintStart_toStartOf="@+id/iv_star"/>
+
+        <ImageView
+            android:id="@+id/iv_clock"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_clock"
+            android:tint="@color/colorAccent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_runtime"
+            app:layout_constraintEnd_toEndOf="@+id/tv_runtime"
+            app:layout_constraintStart_toStartOf="@+id/tv_runtime"/>
+
+        <TextView
+            android:id="@+id/tv_runtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:text="90 min"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/tv_rating"
+            app:layout_constraintTop_toTopOf="@+id/tv_rating"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/rv_cast"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer">
+
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="overview"/>
+    </ScrollView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_cast"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_cast"
+        app:layout_constraintEnd_toEndOf="@+id/rv_cast"
+        app:layout_constraintStart_toStartOf="@+id/rv_cast"
+        app:layout_constraintTop_toTopOf="@+id/rv_cast"/>
+
+</android.support.constraint.ConstraintLayout>

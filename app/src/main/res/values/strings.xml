@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TMDb</string>
+
+    <string name="filter">Filter</string>
+    <string name="topRatedMovies">Top Rated Movies</string>
+    <string name="loading">Loading</string>
+    <string name="ok">OK</string>
+
+    <string name="unknown">Unknown</string>
+    <string name="unknownTitle">Unknown Title</string>
+    <string name="unknownYear">Unknown Year</string>
+    <string name="errorLoadingMovies">There was an error loading the movies. Please try again</string>
+    <string name="errorLoadingCast">There was an error loading the cast.</string>
+    <string name="errorLoadingMovie">There was an error loading this movie. Please try again</string>
+    <string name="detailsTitle">Movie Details</string>
+    <string name="min">min</string>
+    <string name="noMoreMovies">No more movies to load</string>
+    <string name="overviewUnavailable">Overview Unavailable</string>
+
+</resources>
